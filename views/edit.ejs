@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: gilroy;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+
+        }
+        form h2{
+            font-size: 3vw;
+            /* margin-bottom: 10px; */
+            margin-top: 20px;
+            margin-left: 4vw;
+            font-family: Gilroy;
+
+        }
+
+#main{
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    background-image: url(https://images.unsplash.com/photo-1690563762833-21cd96b9e5f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2062&q=80);
+
+    height: 100vh;
+
+}
+
+
+        #ll {
+            position: relative;
+            background-color: blue;
+        }
+
+        form {
+            position: absolute;
+            margin-top: 6%;
+            left: 5%;
+            width: 30vw;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            flex-direction: column;
+            background-color:white;
+
+
+
+            
+            border-radius: 10px;
+            /* border: 4px solid black; */
+
+
+        }
+
+        input {
+            width: 20vw;
+            padding-left: 10px;
+            height: 6.5vh;
+            font-size: 18px;
+            /* background-color: gray; */
+            /* color: white; */
+            border-radius: 6px;
+            margin-top: 4.5vh;
+        }
+        #pass{
+            background-color:lightgray;
+        }
+
+        #submit {
+            background-color: orange;
+            font-size: 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        #main i {
+            font-size: 4vw;
+            color:black;
+            top: 14%;
+            left: 10vw;
+            z-index: 999999999;
+            position: absolute;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+
+
+        <i class="ri-twitter-fill"></i>
+        <div id="ll">
+
+
+            <form action="/update" method="post">
+
+            
+
+                    <h2>Edit Profile</h2>
+                
+
+                
+                <input type="text" name="username" id="username" placeholder="username"
+                    value="<%= founduser.username %>">
+                <input id="pass" type="text" name="password" placeholder="password" disabled value="<%= founduser.password %>">
+        
+
+                <!-- <input type="text" name="Profession" placeholder="Profession" value="<%= founduser.Profession %>"> -->
+                
+
+                <input type="text" name="address" placeholder="address" value="<%= founduser.address %>">
+
+                <input type="submit" value="update" id="submit">
+            </form>
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
+        integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+        var username = document.querySelector("#username")
+
+        username.addEventListener("input", function () {
+            if (username.value.length > 0) {
+                axios.get(`/check/${username.value}`)
+                    .then(function (data) {
+
+                        if (data.data) {
+                            // username.style.boxShadow = "0 0 0 0.25rem rgba(255,50,50,.7)"
+                            username.style.outlineColor = "red"
+                            document.querySelector("#submit").setAttribute("disabled", true)
+                        }
+
+                        else {
+                            username.style.boxShadow = "0 0 0 0.25rem rgba(13,110,253,.25)"
+                            username.style.outlineColor = "blue"
+                            document.querySelector("#submit").removeAttribute("disabled")
+
+                        }
+                    })
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

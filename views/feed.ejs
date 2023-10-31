@@ -1,0 +1,411 @@
+<% include ./partials/header.ejs %>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: gilroy;
+
+    }
+
+    body {
+      width: 100%;
+      height: 100%;
+
+    }
+
+    .container {
+      border-left: 1px solid lightgray;
+      border-right: 1px solid lightgray;
+
+      position: relative;
+      left: 22%;
+      width: 53vw;
+      /* height: 100vh; */
+      /* background-color: gray; */
+
+    }
+
+    .main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .nav {
+      width: 53vw;
+      height: 55px;
+      /* background-color: red; */
+      position: fixed;
+      display: flex;
+      z-index: 99999999;
+      left: 22%;
+      align-items: center;
+      /* border-right: 1px solid lightgrey; */
+
+      border-bottom: 1px solid lightgray;
+
+    }
+
+    .nav h2 {
+      margin-left: 20px;
+      color: #0F1419;
+    }
+
+    .nav i {
+      font-size: 25px;
+      padding: 9px 10px;
+      border-radius: 50px;
+      margin-left: 20px;
+    }
+
+
+    .cover {
+      width: 43rem;
+      /* height: 40vh; */
+      border: 1px solid black;
+      background-color: white;
+      /* margin: 10px; */
+      border-radius: 10px;
+      margin-top: 5vw;
+    }
+
+    .card {
+
+      /* height: 35vh; */
+      /* background-color: #CDD0D1; */
+      margin-bottom: 15px;
+      margin-top: 1vw;
+      margin-left: 20px;
+
+    }
+
+    .createimg img {
+      width: 40vw;
+      /* background-color: red; */
+      border-radius: 12px;
+      object-fit: cover;
+
+      object-position: top;
+      margin-top: 13px;
+      height: 43vh;
+    }
+
+
+    .card h5 {
+      font-size: 2vw;
+      font-family: gilroy;
+      color: black;
+
+    }
+
+    .card p {
+      font-size: 1.2vw;
+      font-family: gilroy;
+      color: gray;
+      line-height: 1;
+      margin-top: 1vw;
+
+    }
+
+    .card a {
+      padding: 12px 17px;
+      text-decoration: none;
+      color: white;
+      border-radius: 7px;
+      margin-left: 20px;
+      font-family: gilroy;
+      font-size: 17px;
+    }
+
+
+
+    #row {
+      display: flex;
+      gap: 15px;
+    }
+
+    .commentbtn {
+      border-radius: 7px;
+      padding: 10px 17px;
+
+      background-color: white;
+      margin-left: 10px;
+      border: none;
+      font-size: 17px;
+    }
+
+    .commentbtn:hover {
+      background-color: darkslategray;
+      color: white;
+    }
+
+    .reply {
+      /* display: none; */
+      background-color: lightgoldenrodyellow;
+      margin-top: 3vw;
+      border-radius: 5px;
+      padding: 0 30px;
+
+    }
+
+    .cross {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cross i {
+      font-size: 2vw;
+    }
+
+
+    .reply h3 {
+      /* text-align: center; */
+      margin-bottom: 2vw;
+    }
+
+    .reply button {
+      padding: 9px 10px;
+      border-radius: 50px;
+      margin-left: 2vw;
+      background-color: #77aaf7;
+      color: white;
+      border: none;
+    }
+
+    .reply button:hover {
+      background-color: #2673e7;
+    }
+
+    .reply input {
+      height: 2.5vw;
+      width: 70%;
+      border: 1px solid #6d6f72;
+      outline-color: #2673e7;
+      border-radius: 50px;
+      margin-bottom: 10px;
+    }
+
+    .sum {
+      display: flex;
+      padding: 4px 10px;
+
+      align-items: center;
+      /* background-color: gray; */
+      margin: 3px;
+
+      justify-content: space-between;
+      border: 1px solid lightgray;
+      border-radius: 4px;
+    }
+
+    .sum-left {
+      display: flex;
+    }
+
+    .co {
+      margin-left: 10px;
+
+
+    }
+
+    .comment h5 {
+      font-size: 18px;
+      font-family: sans-serif;
+      color: #0F1419;
+
+    }
+
+    .comment h6 {
+      color: #6d6f72;
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    .comment img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .co p {
+      font-size: 14px;
+      color: black;
+    }
+
+    #row img {
+      height: 40px;
+      border-radius: 50%;
+      width: 40px;
+      object-position: top;
+      object-fit: cover;
+
+    }
+
+    .lyke {
+      display: flex;
+      align-items: center;
+    }
+
+    .lyke h6 {
+      font-size: 18px;
+      color: #536471;
+      font-weight: 500;
+    }
+
+    #pk {
+      font-size: 24px;
+      color: #536471;
+    }
+
+    .wel {
+      /* width: 54vw; */
+      height: 50px;
+      /* background-color: #7B8892; */
+      display: flex;
+
+      /* border: 1px solid lightgray; */
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .wel a i {
+      font-size: 23px;
+      color: #536471;
+
+    }
+  </style>
+  </head>
+
+  <body>
+    <div class="nav">
+
+      <i class="ri-arrow-left-line"></i>
+
+      <h2>
+        feed
+      </h2>
+
+    </div>
+    <div class="container">
+
+      <div class="main">
+
+
+
+
+        <% allposts.reverse().forEach(function(post){ %>
+
+          <div class="cover">
+            <div class="card" style="width: 40rem;">
+              <div class="card-body">
+                <div id="row">
+                  <img src="/images/uploads/<%= post.userid.image %>" alt="">
+                  <h5 class="card-title">
+                    <%= post.userid.username %>
+                  </h5>
+                </div>
+                <p class="class-text">
+                  <%= post.data %>
+                </p>
+
+
+                <div class="createimg">
+
+                  <img src="./images/uploads/<%= post.postimage %>" alt="">
+                </div>
+
+                <div class="wel">
+                  <a id="commentbtn" href=""><i class="ri-chat-1-line"></i></a>
+
+                  <div class="lyke">
+
+
+                    <a id="pk" href="/like/<%= post._id %>"
+                      class="btn <%= post.likes.indexOf(user.id) === -1 ? 'btn-primary' : 'btn-danger' %> ">
+                      <%= post.likes.indexOf(user.id)===-1 ? "🤍" : "💗" %>
+                    </a>
+
+                    <h6 class="text-primary">
+                      <%= post.likes.length %> Likes
+                    </h6>
+
+                    <a id="del" href="/delete/<%= post._id %>"><i class="ri-delete-bin-7-line"></i> Delete</a>
+
+
+                    <a href=""><i class="ri-repeat-2-line"></i></a>
+
+                    <a href=""><i class="ri-bar-chart-fill"></i></a>
+                    <a href=""><i class="ri-arrow-up-down-line"></i></a>
+                  </div>
+                </div>
+
+
+
+                <!-- Form for adding comments -->
+
+                <div class="reply">
+
+                  <div class="cross">
+
+                    <h3>Comment Box</h3>
+                    <i class="ri-close-circle-line"></i>
+                  </div>
+
+                  <form action="/comment/<%= post._id %>" method="post">
+                    <input type="text" name="comment" placeholder="Add a comment">
+                    <button type="submit">Comment</button>
+                  </form>
+                  <div class="comment">
+                    <% post.comment.reverse().forEach(function(comment){ %>
+
+
+                      <div class="sum">
+
+                        <div class="sum-left">
+
+                          <img src="/images/uploads/<%= comment.userid.image %>" alt="err">
+
+                          <div class="co">
+
+                            <h5>
+                              <%= comment.username %>:
+                            </h5>
+                            <h6>
+                              <%= comment.msg %>
+                            </h6>
+                            <p class="text">
+                              <%= comment.date.toLocaleDateString() %>
+                            </p>
+
+                          </div>
+                        </div>
+
+                        <i class="ri-more-fill"></i>
+
+                      </div>
+
+
+                      <% }) %>
+                  </div>
+
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <% }) %>
+
+      </div>
+    </div>
+
+
+    <% include ./partials/footer.ejs %>

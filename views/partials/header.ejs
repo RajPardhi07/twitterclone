@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        .main-left {
+            width: 360px;
+            height: 100vh;
+            /* background-color: rgb(168, 124, 119); */
+            position: fixed;
+            left: 0;
+        }
+
+        .logo {
+            width: 100%;
+            height: 55px;
+            /* background-color: red; */
+            position: relative;
+        }
+
+        .logo i {
+            font-size: 2.6vw;
+            left: 37%;
+            top: 5px;
+            position: absolute;
+        }
+
+
+        a {
+            margin-left: 3vw;
+            text-decoration: none;
+            font-size: 20px;
+
+
+        }
+
+        .postbtn button {
+            padding: 10px 90px;
+            background-color: #1D9BF0;
+            font-size: 22px;
+            border: none;
+            color: white;
+            position: absolute;
+            left: 23%;
+            cursor: pointer;
+            top: 80%;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: all ease 0.2s;
+        }
+        .postbtn button:hover{
+            background-color:#0b7ecb;
+        }
+
+        .more{
+
+            position: absolute;
+            left: 18%;
+            /* background-color: #E7E7E8; */
+            gap: 10px;
+            padding: 10px 35px;
+            border-radius: 50px;
+            transition: all ease 0.2s;
+cursor: pointer;
+        }
+
+        .more:hover{
+            background-color: #E7E7E8;
+        }
+        .more i{
+            font-size: 1.5vw;
+        }
+        
+        .more button{
+            background-color: transparent;
+            border: none;
+            margin-left: 20px;
+            
+            font-size: 1.3vw;
+        }
+
+
+        li {
+            list-style: none;
+            margin: 1.2vw;
+            font-size: 30px;
+
+        }
+
+        .nav-item a i {
+
+            padding: 0 15px;
+            font-size: 30px;
+        }
+
+        .nav-item a {
+            padding: 11px 25px;
+            /* background-color: slateblue; */
+            color: black;
+            border-radius: 50px;
+
+        }
+
+        .nav-item a:hover {
+            background-color: #E7E7E8;
+            transition: all ease 0.2s;
+        }
+
+
+        .kart {
+            width: 100%;
+            height: 60px;
+            /* background-color: red; */
+            position: absolute;
+            bottom: 10px;
+
+            
+
+        }
+
+        .iso h4{
+            position: absolute;
+            top: 36px;
+            left: 38%;
+            color: #6e7074;
+            font-weight: 400;
+        }
+
+        .iso h2{
+            margin-left: 10px;
+            font-size: 23px;
+        }
+        .iso{
+            width: 266px;
+            height: 100%;
+            margin-left: 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .kart-left {
+            display: flex;
+        }
+
+        .kart img {
+            width: 50px;
+            height: 50px;
+            object-position: top;
+            border-radius: 50px;
+
+            object-fit: cover;
+        }
+
+        .main-right {
+            width: 21vw;
+            height: 100vh;
+            /* background-color: lightpink; */
+            position: fixed;
+            right: 0;
+        }
+
+
+        .main-right input{
+            width: 18vw;
+            padding: 0 17px;
+            font-size: 17px;
+            border: none;
+            border-radius: 50px;
+            height: 47px;
+            background-color: #EFF3F4;
+            margin-top: 7px;
+            margin-left: 10px;
+
+        }
+
+        .main-box{
+            border-radius: 10px;
+            margin-top: 2.5vw;
+            width: 280px;
+            height: 300px;
+            
+            background-color: #EFF1F1;
+
+            margin-left: 20px;
+            /* background-color: red; */
+
+        }
+
+        .main-box h3{
+            padding-top: 10px;
+            margin-bottom: 1.5vw;
+        }
+
+        .nem-l img{
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50px;
+        }
+        .nem-l{
+            display: flex;
+            margin-bottom: 2vw;
+        }
+
+        .nem-l h5{
+            font-size: 16px;
+            margin-left: 7px;
+        }
+
+        .nem-l h5 span{
+            color: #5D6D79;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        .nem-r button{
+            padding: 8px 12px;
+            border: none;
+            border-radius: 50px;
+            background-color: black;
+            margin-bottom: 2vw;
+            color: rgb(233, 223, 223);
+
+        }
+
+        .nem{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .box2{
+            border-radius: 10px;
+            margin-top: 1.6vw;
+            width: 280px;
+            height: 700px;
+            
+            background-color: #EFF1F1;
+
+            margin-left: 20px;
+        }
+
+        .box2 h3{
+            font-size: 21px;
+            padding-top: 14px;
+            padding-left:13px ;
+
+
+        }
+
+        .trend{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.4vw;
+        }
+
+        .trend-in p{
+            color: #5C6C79;
+            font-size: 14px;
+            margin-bottom:4px;
+
+        }
+        .trend-in h6{
+
+            color: #5C6C79;
+            font-size: 13px;
+            font-weight: 500;
+
+        }
+
+        .trend-in h5{
+            margin-bottom:4px;
+
+            color: black;
+            font-size: 17px;
+            
+        }
+
+        #delete-box{
+            width: 20vw;
+            height: 20vh;
+            border-radius: 12px;
+            box-shadow: 0 0 5px 2px gray;
+            top: 45%;
+        z-index: 9999999999;
+        display: none;
+            left: 2vw;
+            position: fixed;
+            /* padding: 20px; */
+            background-color: white;
+            overflow: hidden;
+        }
+        .del-line{
+            display: flex;
+
+            margin-bottom: 10px;
+            gap: 30px;
+            align-items: center;
+            cursor: pointer;
+            height: 60px;
+            width: 100%;
+            transition: all ease 0.2s;
+        }
+         
+        .del-line:hover{
+            background-color:lightgray;
+
+
+        } 
+        .del-line a{
+            margin-left: -8px;
+            font-size: 1.8vw;
+            color: #000000;
+        }
+
+        #delete-box h3{
+            font-family: gilroy;
+            font-size: 25px;
+            font-weight: 500;
+            /* margin-left: 20px; */
+        }
+
+        #delete-box i{
+            font-size: 28px;
+            margin-left: 40px;
+        }
+
+
+    
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="main-left">
+
+        <div class="logo">
+
+            <i class="ri-twitter-x-line"></i>
+        </div>
+
+
+        <div class="vok">
+
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/feed"><i class="ri-home-7-line"></i> Feed</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=""><i class="ri-search-line"></i> Explore</a>
+            </li>
+
+
+            <li class="nav-item" id="logout">
+                <a class="text-danger nav-link" href="/logout"><i class="ri-logout-circle-line"></i> Logout</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href=""> <i class="ri-notification-line"></i> Notifications</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href=""><i class="ri-mail-line"></i> Messages</a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href=""><i class="ri-twitter-x-line"></i> Premium</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href=""><i class="ri-team-line"></i> Communities</a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="/profile"><i class="ri-user-fill"></i> Profile</a>
+            </li>
+
+            <!-- <li class="nav-item">
+                <a id="more" class="nav-link" href=""></a>
+            </li> -->
+
+
+            <div class="more">
+
+                <i class="ri-more-fill"></i>
+                <button> More</button>
+            </div>
+
+            <div id="delete-box">
+                <div class="del-line">
+
+                    <i class="ri-bookmark-line"></i>
+                    <h3>Bookmarks</h3>
+                </div>
+
+                <div class="del-line">
+
+                    <i class="ri-delete-bin-7-line"></i>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="postbtn">
+
+                <button>Post</button>
+            </div>
+        </div>
+
+
+        <div class="kart">
+
+            
+           
+        </div>
+
+
+
+    </div>
+
+    <div class="main-right">
+
+
+        <input type="search" placeholder="Search" >
+
+
+        <div class="main-box">
+
+            <h3>You might like</h3>
+
+            <div class="nem">
+                <div class="nem-l">
+
+                    <img src="https://futureoflife.org/wp-content/uploads/2020/08/elon_musk_royal_society.jpg" alt="">
+                    <h5>Elon Musk
+                       <span>@elonmusk</span> 
+                    </h5>
+                </div>
+
+                <div class="nem-r">
+                    <button>FOLLOW</button>
+                </div>
+            </div>
+
+            <div class="nem">
+                <div class="nem-l">
+
+                    <img src="https://pbs.twimg.com/profile_images/603269306026106880/42CwEF4n_400x400.jpg" alt="">
+                    <h5>Tom Cruise
+                        <span>@TomCruise</span>
+                    </h5>
+                </div>
+
+                <div class="nem-r">
+                    <button>FOLLOW</button>
+                </div>
+            </div>
+
+            <div class="nem">
+                <div class="nem-l">
+
+                    <img src="https://englishtribuneimages.blob.core.windows.net/gallary-content/2022/8/2022_8$largeimg_2069146412.JPG" alt="">
+                    <h5>Hrithik Roshan
+                        <span>@iHrithik</span>
+                    </h5>
+                </div>
+
+                <div class="nem-r">
+                    <button>FOLLOW</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="box2">
+
+            <h3>What's happening</h3>
+
+
+            <div class="trend">
+                <div class="trend-in">
+                    <p>Sport • Trending
+
+                    </p>
+
+                    <h5>#TeamIndia</h5>
+                    <h6>46.7k posts</h6>
+                </div>
+
+                <i class="ri-more-fill"></i>
+            </div>
+
+            <div class="trend">
+                <div class="trend-in">
+                    <p>Car • Trending
+
+                    </p>
+
+                    <h5>#Ferrari</h5>
+                    <h6>1.1m posts</h6>
+                </div>
+
+                <i class="ri-more-fill"></i>
+            </div>
+
+
+            <div class="trend">
+                <div class="trend-in">
+                    <p>Cricket • Trending
+
+                    </p>
+
+                    <h5>#ViratKohli</h5>
+                    <h6>123k posts</h6>
+                </div>
+
+                <i class="ri-more-fill"></i>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <script>
+
+     var postbutton =   document.querySelector(".postbtn button")
+
+     var accountdelete = document.querySelector(".account-delete") 
+
+     var delbox = document.querySelector("#delete-box")
+     
+     var more = document.querySelector(".more")
+     
+     var flag= 0
+     more.addEventListener("click", function(){
+
+        if(flag === 0){
+
+            delbox.style.display = "block"
+            accountdelete.style.display = "block"
+            flag=1
+        }
+
+        else{
+            delbox.style.display = "none"
+            accountdelete.style.display = "none"
+
+
+            flag=0
+        }
+     })
+
+    </script>
+
+</body>
+
+</html>

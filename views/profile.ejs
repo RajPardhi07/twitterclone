@@ -1,0 +1,1181 @@
+<% include ./partials/header.ejs %>
+
+
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: gilroy;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            /* position: relative; */
+
+        }
+
+        .over {
+            display: flex;
+        }
+
+        /* .main-left {
+            width: calc(100% - 76vw);
+        
+            background-color: rgb(168, 124, 119);
+           
+        } */
+
+        .main {
+            border-left: 1px solid lightgray;
+ 
+            left: 20%;
+            position: absolute;
+            left: 24%;
+            width: 54vw;
+            height: 100vh;
+            /* background-color: gray; */
+
+        }
+
+        .navbar {
+            width: 53.96vw;
+            height: 55px;
+            background-color: white;
+            position: fixed;
+            display: flex;
+            align-items: center;
+            border-right: 1px solid lightgrey;
+
+
+        }
+
+        .navbar h2 {
+            margin-left: 20px;
+        }
+
+        
+
+
+        .navbar i {
+            font-size: 25px;
+            padding: 9px 10px;
+            border-radius: 50px;
+            margin-left: 20px;
+        }
+
+        .navbar i:hover {
+            background-color: lightgray;
+
+            transition: all ease-in 0.2s;
+        }
+
+        .top {
+
+            width: 100%;
+            height: 40vh;
+            background-color: lightgreen;
+            /* background-image: url(https://images.unsplash.com/photo-1685271552630-9bc169185566?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80); */
+            background-position: 50% 40%;
+            background-image: url(https://images.unsplash.com/photo-1618243615611-f64ebcb16f36?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=2070);
+            background-size: cover;
+        }
+
+
+        #uploadpic {
+            display: none;
+        }
+
+        .photo {
+            width: 150px;
+            height: 150px;
+            background-color: white;
+            border: 1px solid black;
+
+
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo img {
+            width: 94%;
+
+            height: 94%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        #parentcircle {
+            position: absolute;
+            left: 73%;
+            top: 30%;
+        }
+
+        #parentcircle:hover i {
+            opacity: 1;
+        }
+
+        #parentcircle i {
+            padding: 7px 9px;
+            right: 6px;
+            top: 15px;
+            opacity: 0;
+            border-radius: 50px;
+            background-color: gray;
+            position: absolute;
+            color: white;
+
+        }
+
+
+        .lic {
+            border-left: 1px solid lightgray;
+            border-right: 1px solid lightgray;
+
+
+        }
+
+        .detail {
+            padding: 10px 50px;
+            width: 100%;
+            height: 33vh;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .data {
+            margin-bottom: 23px;
+        }
+
+        .data h2 {
+            font-size: 36px;
+            /* margin-bottom: 3px; */
+
+        }
+
+        .data h3 {
+            font-size: 27px;
+            color:rgb(58, 56, 56);
+            font-weight: 500;
+            margin-bottom: 7px;
+
+        }
+
+        .data h4 {
+
+            color: black;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .bio{
+            display: flex;
+            gap: 10px;
+            /* align-items: center; */
+        }
+
+        .bio i{
+            font-size: 1.7vw;
+            color: #536471;
+        }
+
+        .bio h4 {
+            color: #536471;
+
+            width: 230px;
+            /* background-color: red; */
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 1vw;
+
+        }
+
+        
+
+        
+        .location h4 {
+            color: #536471;
+
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 28px;
+        }
+
+        #follower {
+            width: 20vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* background-color: red; */
+            
+
+        }
+
+        #follower h4 {
+            font-size: 24px;
+            /* font-size: 19px; */
+            font-weight: 500;
+            word-spacing: 5px;
+
+            color: black;
+            /* margin-bottom: -1px; */
+        }
+
+        #follower h4 span{
+            font-size: 20px;
+            color: #536471;
+
+        }
+
+        #follower h5 {
+            font-size: 25px;
+            color: rgb(57, 55, 55);
+        }
+
+        .bot p a {
+            padding: 9px 23px;
+            /* background-color:black; */
+            border-radius: 50px;
+            text-decoration: none;
+            color: black;
+            border: 1px solid lightgray;
+            font-size: 22px;
+            position: absolute;
+            right: 8%;
+            top: 65%;
+        }
+
+
+
+        .bot p a:hover {
+            background-color: lightgray;
+            color: black;
+            transition: all ease-in 0.2s;
+        }
+
+       
+
+        .tag {
+            width: 53.96vw;
+            height: 54px;
+            /* background-color: blueviolet; */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7px;
+            /* border-bottom: 1px solid lightgray; */
+            border-right: 1px solid lightgray;
+            border-bottom: 1px solid lightgray;
+
+
+
+        }
+
+        .tag h5 {
+            color: gray;
+            padding: 12.5px 48px;
+            background-color: white;
+            font-size: 22px;
+
+            cursor: pointer;
+            font-weight: 500;
+
+        }
+
+        .tag h5:nth-child(1) {
+            color: black;
+            background-color: #E7E7E8;
+        }
+
+        .tag h5:hover {
+            background-color: #E7E7E8;
+            transition: all ease-in 0.2s;
+        }
+
+        #bottom {
+            width: 100%;
+            height: 32vh;
+            border: 1px solid lightgray;
+            color: white;
+            /* display: none; */
+            transition: all ease 0.2s;
+
+            /* background-color:#FDD252; */
+        }
+
+        #bottom h4 {
+            font-size: 25px;
+            font-family: gilroy;
+            margin-top: 2px;
+            margin-left: 3vw;
+            letter-spacing: -1px;
+            font-weight: 500;
+            color: white;
+            /* opacity: 0; */
+        }
+
+
+
+        #create i {
+            border-radius: 50%;
+            color: lightgrey;
+            background-color: black;
+            /* border: 1px solid black; */
+            font-weight: 500;
+
+            padding: 9px 10px;
+            font-size: 1.8vw;
+        }
+
+
+
+        .col {
+            width: 100%;
+            position: relative;
+        }
+
+        textarea {
+            resize: none;
+            width: 40vw;
+            border: none;
+            padding: 10px;
+            background-color: transparent;
+            margin-left: 5vw;
+            margin-top: 5vw;
+            font-size: 20px;
+            outline-color: lightgray;
+            border-radius: 7px;
+
+
+        }
+
+        #postimage{
+            display: none;
+        }
+        
+        #uploadimage{
+            position: absolute;
+            top: 10px;
+            /* right: 50px; */
+            margin-left: 5vw;
+            font-size: 19px;
+            background-color: transparent;
+
+            color: #1D9BF0;
+            width: 13vw;
+            position: absolute;
+            /* top: 20px; */
+            height: 37px;
+            cursor: pointer;
+            font-weight: 700;
+            border: 1px solid #8ec9f0;
+            border-radius: 50px;
+            padding: 7px 13px;
+
+        }
+        #clos{
+            position: absolute;
+            top: 10px;
+            font-size: 2vw;
+            right: 20px;
+            color: black;
+        }
+        #upbtn{
+            position: absolute;
+            right: 30px;
+            bottom: -3.4vw;
+            border-radius: 50px;
+            padding: 8px 15px;
+
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            background-color: #8ECDF7;
+            border: none;
+            transition: all ease 0.2s;
+        }
+
+        #upbtn:hover{
+            background-color: #1D9BF0;
+
+        }
+        
+
+        .col img {
+            width: 50px;
+            position: absolute;
+            height: 50px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 50px;
+        }
+
+
+        
+
+        .col2 {
+            width: 100%;
+            height: 10vh;
+            border-top: 1px solid lightgray;
+            /* background-color: aquamarine; */
+        }
+
+        .pp {
+            position: absolute;
+            right: 7vw;
+            top: 12vw;
+            padding: 10px 22px;
+            background-color: #1D9BF0;
+            color: white;
+            font-size: 20px;
+            border: none;
+            border-radius: 50px;
+        }
+
+        
+        .icon {
+            width: 28vw;
+            height: 10vh;
+            /* background-color: red; */
+            display: flex;
+            margin-left: 5vw;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .icon i {
+            font-size: 28px;
+            color: #1D9BF0;
+
+        }
+
+
+        .all {
+            width: 100%;
+            /* background-color: rgb(18, 17, 17); */
+
+            border-left: 1px solid lightgray;
+            padding-left: 20px;
+            border-right: 1px solid lightgray;
+
+            padding-top: 10px;
+
+        }
+
+        .all h2 {
+            margin-bottom: 2.5vw;
+            color: lightgray;
+
+        }
+
+        .card {
+            /* height: 50vh; */
+            background-color: white;
+            margin-bottom: 15px;
+            /* border: 1px solid gray; */
+
+            border-bottom: 1px solid lightgray;
+        }
+
+        .createimg img{
+            width:40vw;
+            /* background-color: red; */
+            border-radius: 12px;
+            object-fit: cover;
+            overflow: hidden;
+
+            object-position: top;
+            margin-top: 13px;
+            height:48vh;
+        }
+
+
+        .rom {
+            display: flex;
+            padding: 10px 20px;
+
+        }
+
+        .class-text {
+
+            border-radius: 10px;
+            /* border: 1px solid white; */
+        }
+
+        .card h5 {
+            font-size: 24px;
+            font-family: gilroy;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            font-size: 1.8vw;
+            font-family: gilroy;
+            color: #0F1419;
+
+        }
+
+        .tyme {
+            display: flex;
+
+            margin-left: 3vw;
+            /* margin-top: 0.8vw; */
+        }
+
+
+
+        .tyme p {
+            margin-left: 10px;
+            margin-top: 8px;
+            font-size: 17px;
+            color: #7B8892;
+
+        }
+
+        .lyke {
+            display: flex;
+            align-items: center;
+        }
+
+        .lyke h6 {
+            font-size: 18px;
+            color: #536471;
+            font-weight: 500;
+        }
+
+        #pk {
+            font-size: 24px;
+            color: #536471;
+        }
+
+        .wel {
+            /* width: 54vw; */
+            height: 50px;
+            /* background-color: #7B8892; */
+            display: flex;
+
+            /* border: 1px solid lightgray; */
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .wel a i {
+            font-size: 23px;
+            color: #536471;
+
+        }
+
+        .card a {
+            padding: 10px 17px;
+            border-radius: 7px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .lay img {
+            object-fit: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+
+        }
+
+        .lay-right {
+            margin-left: 20px;
+        }
+
+        #deta {
+            font-size: 19px;
+            color: #373839;
+            font-weight: 500;
+        }
+
+        .lay img {
+            width: 50px;
+            position: absolute;
+            height: 50px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 50px;
+        }
+
+        .reply {
+            /* margin-top: 2vw; */
+            background-color: lightgoldenrodyellow;
+            margin-bottom: 30px;
+            /* margin-left: -1.3vw; */
+      
+        /* display: none; */
+            border-bottom: 1px solid lightgray;
+            /* padding: 10px 20px; */
+        }
+
+        .cross {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 20px;
+        }
+        .commbox{
+            /* background-color: rgb(212, 215, 142); */
+            height: 170px;
+            margin-left: -1.3vw;
+
+            border-bottom: 1px solid lightgray;
+        }
+        .commbox button{
+            width: 95px;
+            height: 46px;
+            font-size: 19px;
+            color: white;
+            border: none;
+            margin-left: 9vw;
+           
+            border-radius: 50px;
+            font-weight: 600;
+            background-color:#75acd1;
+
+        }
+
+        .gir-left{
+            width: 220px;
+            display: flex;
+            /* background-color: yellow; */
+            justify-content: space-between;
+        }
+
+        .gir-left i{
+
+            color: #1A8CD8;
+            font-size: 23px;
+        }
+        .gir{
+            padding: 0 36px;
+            margin-top: 20px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* background-color: aquamarine; */
+        }
+
+      
+
+        .commbox form{
+            margin-top: 10px;
+            
+        padding: 0px 20px;
+        }
+
+        .commbox input{
+            width: 500px;
+            height: 50px;
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+        }
+
+        .cross i {
+            font-size: 2.2vw;
+        }
+
+     .co{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+     }
+
+     .sum{
+        /* background-color: lightgrey; */
+        margin-top: 10px;
+        margin-left: -1.3vw;
+        padding: 10px 20px;
+        border-bottom: 1px solid lightgray;
+     }
+
+     .co-left{
+        display: flex;
+        justify-content: space-between;
+        /* width: 160px; */
+        /* align-items: center; */
+        /* background-color: yellow; */
+     }
+
+     .co-left h5{
+        font-size: 23px;
+        font-weight: 700;
+        margin-left: 16px;
+     }
+
+     .co-left h6{
+        font-size: 19px;
+        font-weight: 500;
+        color: #667581;
+        margin-left: 10px;
+     }
+    
+     .sum-left h4{
+
+        font-size: 20px;
+        color: #292c2d;
+        font-weight: 500;
+        margin-left: 4vw;
+        margin-bottom: 1vw;
+
+     }
+        .sum-left img{
+            width: 50px;
+            border-radius: 50px;
+            height: 50px;
+            object-fit: cover;
+            /* object-position: top; */
+
+        }
+
+        .account-delete{
+            position: absolute;
+            top: 70%;
+            left: 5%;
+            display: none;
+
+        }
+
+        .account-delete a{
+            font-size: 1.7vw;
+            color: #0F1419;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="account-delete">
+
+        <a href="/deleteuser/<%= userdets._id %>">delete</a>
+    </div>
+
+
+    <div class="over">
+
+
+
+        <!-- <div class="main-left">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/feed">Feed</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/profile">Profile</a>
+            </li>
+
+
+            <li class="nav-item" id="logout">
+                <a class="text-danger nav-link" href="/logout">Logout</a>
+            </li>
+
+
+        </div> -->
+<!-- 
+        <div class="del-line1">
+
+            <i class="ri-delete-bin-7-line"></i>
+            <a href="/deleteuser/<%= userdets._id %>">delete</a>
+        </div> -->
+
+        <div class="main">
+
+            <div class="navbar">
+
+                <i class="ri-arrow-left-line"></i>
+
+                <h2>
+                    <%= userdets.headname %>
+                </h2>
+
+                
+
+            </div>
+
+            <div class="top">
+
+                <form id="uploadpic" action="/upload" method="post" enctype="multipart/form-data">
+                    <input id="fileinp" type="file" name="image" />
+                </form>
+
+                <div id="parentcircle">
+
+                    <div class="pencil"><i class="ri-pencil-fill"></i></div>
+
+                    <div class="photo">
+                        <img src="../images/uploads/<%= userdets.image %>" alt="">
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="bot">
+
+                <p><a href="/edit">Edit Profile</a></p>
+            </div>
+
+
+            <div class="lic">
+
+                <div class="detail">
+
+                    <div class="data">
+                        <h2>
+                            <%= userdets.headname %>
+                        </h2>
+                        <h3>
+                            <%= userdets.username %>
+                        </h3>
+                        <h4>
+                            <%= userdets.Profession %>
+                        </h4>
+
+                    </div>
+                    
+                    <div class="bio">
+                        <!-- <h4>This is my Bio</h4> -->
+                        <i class="ri-map-pin-line"></i>
+                        <h4>
+
+                            <%= userdets.address %>
+                        </h4>
+                    </div>
+
+                    <div class="location">
+                        <!-- <h4>Bhopal,India</h4> -->
+                    </div>
+
+
+
+                    <div id="follower">
+
+                        <div class="fol-2">
+                            <h4>700 <span>Followers</span></h4>
+                        </div>
+                        <div class="fol-3">
+                            <h4>500 <span>Following</span></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tag">
+                <h5>Posts</h5>
+                <h5>Replies</h5>
+                <h5>Highlighs</h5>
+                <h5>Media</h5>
+                <h5>Likes</h5>
+            </div>
+
+
+            <div id="bottom">
+
+
+
+
+                <div class="col">
+
+
+                    <img src="../images/uploads/<%= userdets.image %>" alt="">
+
+                    
+                    <!-- <h6>Everyone <i class="ri-arrow-down-s-line"></i></h6> -->
+                     <!-- <form action="/uploadFile" method="post" enctype="multipart/form-data">
+                         <input id="postvideo" type="file" name="postvideo">
+                        <input type="submit">
+                    </form>  -->
+
+                    <!-- <video src="/listen" controls></video> -->
+                    
+                    <form action="/post" method="post" enctype="multipart/form-data">
+                        
+
+                
+                        <input id="postimage" type="file" name="postimage">
+                        <div class="form-floating">
+                            <textarea name="post" class="form-control" placeholder="What is happening?!"
+                                id="floatingTextarea2" style="height: 90px"></textarea>
+                            <label for="floatingTextarea2"></label>
+                        </div>
+
+
+                        <input type="button" id="uploadimage" value="Upload Image">
+                        <input type="submit" id="upbtn" class="btn btn-primary" value="Post">
+
+                        <i id="clos" class="ri-close-circle-line"></i>
+
+                    </form>
+                </div>
+
+                <div class="col2">
+                    <div class="icon">
+                        <i class="ri-gallery-line"></i>
+                        <i class="ri-file-gif-line"></i>
+                        <i class="ri-list-radio"></i>
+                        <i class="ri-emotion-happy-line"></i>
+                        <i class="ri-calendar-event-fill"></i>
+                        <i class="ri-map-pin-line"></i>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="all">
+
+                <!-- <div class="picture">
+
+                    <img src="./images/newpost/<%= userdets.image %>" alt="">
+
+                </div> -->
+
+
+                <% userdets.posts.reverse().forEach(function(post){ %>
+
+                    <div class="card" style="width: 49rem;">
+                        <div class="card-body">
+
+                            <div class="rom">
+
+                                <div class="lay">
+
+                                    <img src="./images/uploads/<%= userdets.image %>" alt="">
+
+                                </div>
+
+                                <div class="lay-right">
+
+                                    <div class="tyme">
+
+                                        <h5 class="card-title">
+                                            <%= userdets.username %>
+                                        </h5>
+
+                                        <p class="text-primary">
+                                            <%= post.date.toLocaleDateString() %>
+                                        </p>
+                                    </div>
+
+
+                                    <p id="deta" class="class-text">
+                                        <%= post.data %>
+                                    </p>
+
+
+                                    <div class="createimg">
+
+                                        <img  src="./images/uploads/<%= post.postimage %>" alt="">
+                                    </div>
+
+
+
+
+
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="wel">
+
+                                <a id="commentbutton" href=""><i class="ri-chat-1-line"></i></a>
+
+                                <div class="lyke">
+
+                                    <a id="pk" href="/like/<%= post._id %>"
+                                        class="btn <%= post.likes.indexOf(userdets.id) === -1 ? 'btn-primary' : 'btn-danger' %>">
+
+                                        <%= post.likes.indexOf(userdets.id)===-1 ? "🤍 " : "💗 " %>
+                                    </a>
+
+                                    <h6 class="text-primary">
+                                        <%= post.likes.length %> likes
+
+                                    </h6>
+                                </div>
+
+
+                                <a id="del" href="/delete/<%= post._id %>"><i class="ri-delete-bin-7-line"></i>
+                                </a>
+
+                                <a href=""><i class="ri-repeat-2-line"></i></a>
+
+                                <a href=""><i class="ri-bar-chart-fill"></i></a>
+                                <a href=""><i class="ri-arrow-up-down-line"></i></a>
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="reply">
+                        <div class="commbox">
+                            <div class="cross">
+
+                                <h3>Comment Box</h3>
+                                <i class="ri-close-circle-line"></i>
+                            </div>
+
+                        
+                            <form action="/comment/<%= post._id %>" method="post">
+                                <input type="text" name="comment" placeholder="Post Your Reply">
+                                <button type="submit">Reply</button>
+                            </form>
+                            
+                            
+                            <div class="gir">
+                                
+                                <div class="gir-left">
+
+                                    <i class="ri-gallery-fill"></i>
+                                    <i class="ri-file-gif-line"></i>
+                                    <i class="ri-emotion-happy-line"></i>
+                                    <i class="ri-map-pin-line"></i>
+                                </div>
+
+                                <div class="gir-right">
+
+                                   
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                        <div class="comment">
+                            <% post.comment.reverse().forEach(function(comment){ %>
+
+
+                                <div class="sum">
+
+                                    <div class="sum-left">
+
+                                        <!-- <img src="/images/uploads/<%= comment.userid.image %>" alt=""> -->
+
+                                        
+                                        <div class="co">
+
+                                            <div class="co-left">
+
+
+                                                <img src="/images/uploads/<%= comment.userid.image %>" alt="err">
+
+                                                <h5>
+                                                    <%= comment.username %> •
+                                                </h5>
+
+                                                <h6 class="text">
+
+                                                    <%= comment.date.toLocaleDateString() %>
+
+                                                </h6>
+
+                                            </div>
+
+                      
+
+                                            <i class="ri-more-fill"></i>
+
+                                            
+                                        </div>
+
+                                        <h4>
+                                            "<%= comment.msg %>"
+                                        </h4>
+                                        
+
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <% }) %>
+                        </div>
+
+
+                    </div>
+
+                    <% }) %>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <script>
+
+var accountdelete = document.querySelector(".account-delete") 
+
+        document.querySelector(".pencil").addEventListener("click", function () {
+            document.querySelector("#fileinp").click();
+        })
+
+
+        document.querySelector("#uploadimage").addEventListener("click", function(){
+
+            document.querySelector("#postimage").click();
+        })
+
+        document.querySelector("#fileinp").addEventListener("change", function () {
+            document.querySelector("#uploadpic").submit();
+        })
+
+
+        document.querySelectorAll("#commentbutton").forEach(function(u){
+
+            u.addEventListener("click", function(){
+            u.nextElementSibling.style.display = "block"   
+            })
+        })
+
+        document.querySelectorAll(".cross i").forEach(function(d){
+
+        d.addEventListener("click", function(){
+
+        document.querySelector(".reply").style.display = "none"
+        })
+        })
+
+
+        var postbtn =   document.querySelector(".postbtn button")
+
+        var clos = document.querySelector("#clos")
+        var bottom = document.querySelector("#bottom")
+        postbtn.addEventListener("click", function(){
+
+            bottom.style.display = "block"
+        })
+
+        clos.addEventListener("click", function(){
+
+             bottom.style.display = "none"
+})
+
+    </script>
+
+    <% include ./partials/footer.ejs %>
